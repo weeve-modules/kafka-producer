@@ -14,7 +14,7 @@ log = getLogger("module")
 
 __TOPIC__ = getenv("TOPIC")
 __PARTITION__ = int(getenv("PARTITION")) if getenv("PARTITION") else None
-__IS_FLUSHED__ = bool(getenv("IS_FLUSHED"))
+__FLUSH_BUFFER__ = bool(getenv("FLUSH_BUFFER"))
 
 producer = KafkaProducer(
     bootstrap_servers=[server.strip() for server in getenv("BOOTSTRAP_SERVERS").split(',')],
@@ -52,7 +52,7 @@ def module_main(received_data: any) -> str:
             partition=__PARTITION__,
         ).add_callback(on_success).add_errback(on_error)
 
-        if __IS_FLUSHED__:
+        if __FLUSH_BUFFER__:
             # block until all async messages are sent -> eventually, the producer is also flushed (producer.flush()),
             # that means blocking it until previous messaged have been delivered effectively, to make it synchronous.
             producer.flush()

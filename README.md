@@ -32,7 +32,7 @@ The following module configurations can be provided in a data service designer s
 | Bootstrap Servers    | BOOTSTRAP_SERVERS         | string   | List of comma (,) separated Kafka bootstrap servers that the producer should contact to bootstrap initial cluster metadata.            |
 | Client ID    | CLIENT_ID         | string   | A name for this client. This string is passed in each request to servers and can be used to identify specific server-side log entries that correspond to this client.            |
 | Partition    | PARTITION         | string   | Optionally specify a partition. If not set the message is delivered to a random partition (filtered to partitions with available leaders only, if possible).            |
-| Is Flushed    | IS_FLUSHED         | string   | Make producer flushed blocking it until previous messaged have been delivered effectively, to make it synchronous.            |
+| Flush Buffer    | FLUSH_BUFFER         | string   | Make producer flushed blocking it until previous messaged have been delivered effectively, to make it synchronous.            |
 
 ### Set by the weeve Agent on the edge-node
 

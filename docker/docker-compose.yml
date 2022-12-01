@@ -13,6 +13,6 @@ services:
       BOOTSTRAP_SERVERS: "localhost:9092"
       CLIENT_ID: "kafka-producer-module"
       PARTITION: ""
-      IS_FLUSHED: "False"
+      FLUSH_BUFFER: "False"
     ports:
       - 80:80

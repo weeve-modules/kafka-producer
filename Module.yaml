@@ -40,8 +40,8 @@ envs:
     type: 'number'
     options: []
     dependencies: []
-  - name: Is Flushed
-    key: IS_FLUSHED
+  - name: Flush Buffer
+    key: FLUSH_BUFFER
     description: Make producer flushed blocking it until previous messaged have been delivered effectively, to make it synchronous.
     value: 'False'
     type: 'select'

@@ -17,8 +17,8 @@ __PARTITION__ = int(getenv("PARTITION")) if getenv("PARTITION") else None
 __FLUSH_BUFFER__ = bool(getenv("FLUSH_BUFFER"))
 
 producer = KafkaProducer(
-    bootstrap_servers=[server.strip() for server in getenv("BOOTSTRAP_SERVERS").split(',')],
-    client_id=getenv("CLIENT_ID"),
+    bootstrap_servers=[server.strip() for server in getenv("BOOTSTRAP_SERVERS", "localhost:9092").split(',')],
+    client_id=getenv("CLIENT_ID", "kafka-python-producer-0"),
     value_serializer=lambda x: dumps(x).encode('utf-8')
 )
 

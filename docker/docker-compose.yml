@@ -1,13 +1,18 @@
 version: "3.0"
 services:
-  boilerplate:
+  kafka-producer:
     build:
       context: ../
       dockerfile: docker/Dockerfile
     environment:
-      MODULE_NAME: "boilerplate"
+      MODULE_NAME: "kafka-producer"
       MODULE_TYPE: "Output"
       INGRESS_HOST: "0.0.0.0"
       INGRESS_PORT: "80"
+      TOPIC: "kafka-topic"
+      BOOTSTRAP_SERVERS: "localhost:9092"
+      CLIENT_ID: "kafka-producer-module"
+      PARTITION: ""
+      FLUSH_BUFFER: "False"
     ports:
       - 80:80

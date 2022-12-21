@@ -42,7 +42,7 @@ envs:
     dependencies: []
   - name: Flush Buffer
     key: FLUSH_BUFFER
-    description: Make producer flushed blocking it until previous messaged have been delivered effectively, to make it synchronous.
+    description: Make producer flushed blocking it until previous messaged have been delivered effectively (flush the queue after every message), to make it synchronous.
     value: 'False'
     type: 'select'
     options:

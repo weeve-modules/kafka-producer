@@ -26,8 +26,8 @@ def on_success(record):
     log.debug(f'Success! Topic: {record.topic}. Partition: {record.partition}. Offset: {record.offset}.')
 
 def on_error(excp):
-    log.error(f'Error: {excp}')
-    raise Exception(excp)
+    log.error(f'Error when sending to Kafka (producer.send()): {excp}')
+    raise Exception(f'Error when sending to Kafka (producer.send()): {excp}')
 
 
 def module_main(received_data: any) -> str:
